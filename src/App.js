@@ -8,14 +8,31 @@ const isLocationChoosen = false;
 const city = "Warsaw";
 let lat = "";
 let lon = "";
-let apiCoordinatesUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=c41d908f1add1ed058ece7d648cd2244"
+let apiCoordinatesUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=";
 
+
+//Fragment to codowania api, trza zrobic
+const crypto = require('crypto');
+// Function to hash a password with a salt
+function hashPassword(password, salt) {
+    const hash = crypto.createHmac('sha256', salt);
+    hash.update(password);
+    const hashedPassword = hash.digest('hex');
+    return hashedPassword;
+}
+
+// Example usage
+let password = "mysecretpassword";
+let salt = "somesaltvalue";
+let hashedPassword = hashPassword(password, salt);
+
+console.log("Hashed Password:", hashedPassword);
 
 
 function App() {
   const [api, setApi] = useState(null);
   const [coordinates, setCoordinates] = useState(null);
-  
+  console.log(apiCode - 1111);
   useEffect(() => {
     const fetchUserData = async () => {
       // trzeba zmieniac w stringu latitude i longtitude w zaleznosci od miejsca gdzie chcemy pokazywac pogode
