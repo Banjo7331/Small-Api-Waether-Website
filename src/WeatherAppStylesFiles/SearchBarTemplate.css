@@ -1,0 +1,49 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    text-align: top;
+    align-items: top;
+    height: 100vh; /* This ensures the body takes up the full viewport height */
+    margin: 0;
+    background-image: url('../GeneralPictures/clouds-on-a-blue-sky-background-good-weather-vector-20551836.jpg');
+    background-size: cover;
+    background-position: center;
+}
+#search {
+    width: 50px;
+    height: 50px;
+    background-image: url('../WeatherElements/SomeWeatherRepresentingIcons/contrast.png');
+    background-size: 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none; 
+    background-color: transparent; 
+}
+
+.SearchBar{
+    margin-top: 20px;
+}
+input{
+    display: inline-block;
+    width: 300px; 
+    height: 45px;
+    border-radius: 20px 20px ;
+    background: linear-gradient(to left, #007BFF, #ffffff);
+    background-size: 200%;
+    background-position: 0%;
+    transition: 0.5s;
+}
+input:hover{
+    background-position: 100% 0%;
+}
+
+
+@keyframes clouds {
+    0% {
+        background: #fff;
+    }
+    100% {
+        background: linear-gradient(to left, #007BFF, #ffffff);
+    }
+}
