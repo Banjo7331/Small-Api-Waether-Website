@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "../WeatherAppStylesFiles/Weather.css";
 import Temperature from './Temperature';
 
 const isLocationChoosen = false;
 let city = "Warsaw";
 let lat = "";
 let lon = "";
-
-
-
+const now = new Date();
+const CurrentHour = now.getHours();
 
 export default function MainScreen({cityToCheck}) {
   const [api, setApi] = useState(null);
@@ -55,7 +55,7 @@ export default function MainScreen({cityToCheck}) {
   
   
   return (
-    <div>
+    <div className="WeatherData">
       {api && (
         <div>
           <p>Time: {api.hourly.time[0]}</p>

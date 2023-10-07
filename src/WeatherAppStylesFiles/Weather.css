@@ -1,0 +1,9 @@
+.WeatherData {
+  background-color: greenyellow;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  text-align: top;
+  align-items: top;
+  height: 100vh; /* This ensures the body takes up the full viewport height */
+}

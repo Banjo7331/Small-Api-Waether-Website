@@ -25,6 +25,7 @@
 
 .SearchBar {
   display: flex;
+  position: relative;
   justify-content: center;
   text-align: top;
   align-items: top;
@@ -54,4 +55,19 @@ input:hover {
   100% {
     background: linear-gradient(to left, #007bff, #ffffff);
   }
+}
+#textWelcoming{
+  font-size: 45px;
+  width: 250px;
+  background-image: url("../WeatherElements/SomeWeatherRepresentingIcons/cld.png");
+  background-size: 50%;
+  overflow-wrap: break-word;
+  text-align: center;
+  margin-left: 30px;
+  margin-top: 150px;
+  color: rgb(239, 213, 65);
+  -webkit-text-stroke: 2px rgb(53, 48, 48);
+  font-weight: bold;
+  font-size: 36px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
