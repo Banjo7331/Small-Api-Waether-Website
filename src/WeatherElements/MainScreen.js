@@ -3,16 +3,18 @@ import axios from "axios";
 import Temperature from './Temperature';
 
 const isLocationChoosen = false;
-const city = "Warsaw";
+let city = "Warsaw";
 let lat = "";
 let lon = "";
-let apiCoordinatesUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=c41d908f1add1ed058ece7d648cd2244";
 
 
 
-export default function MainScreen() {
+
+export default function MainScreen({cityToCheck}) {
   const [api, setApi] = useState(null);
   const [coordinates, setCoordinates] = useState(null);
+  city = cityToCheck
+  let apiCoordinatesUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=5&appid=c41d908f1add1ed058ece7d648cd2244";
   useEffect(() => {
     const fetchUserData = async () => {
       // trzeba zmieniac w stringu latitude i longtitude w zaleznosci od miejsca gdzie chcemy pokazywac pogode

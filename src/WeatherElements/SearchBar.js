@@ -1,13 +1,55 @@
-import React from 'react'
-import "../WeatherAppStylesFiles/SearchBarTemplate.css"
+import React from "react";
+import "../WeatherAppStylesFiles/SearchBarTemplate.css";
+import { useState } from "react";
+import MainScreen from "./MainScreen";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+
+let rightValueToGoThrough = false;
 
 export default function SearchBar() {
+  const [inputValue, setInputValue] = useState("");
+  const [isRIght, setIsRight] = useState(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (inputValue.trim() !== "") {
+      // Process the input value
+      rightValueToGoThrough = true;
+      console.log("Input value:", inputValue);
+      setIsRight(false);
+    } else {
+      alert("Please enter City you looking for!");
+    }
+  };
+
   return (
-    <div className='SearchBar'>
-        <form id="form"> 
-            <input type="search" id="query" name="City" placeholder="Search for city..."></input>
-            <button id='search'/>
-        </form>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            isRIght ? (
+              <div className="SearchBar">
+                <form id="form" onSubmit={handleSubmit}>
+                  <input
+                    type="search"
+                    id="query"
+                    value={inputValue}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    name="City"
+                    placeholder="Search for city..."
+                  />
+                  <button id="search" />
+                </form>
+              </div>
+            ) : (
+              <Navigate replace to={'/'+inputValue} />
+            )
+          }
+        ></Route>
+        <Route path={'/'+inputValue} element={<MainScreen cityToCheck={inputValue}/>}></Route>
+      </Routes>
+    </Router>
+  );
 }
